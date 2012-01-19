@@ -3,7 +3,7 @@
 """ LinkedIn """
 
 __author__ = 'Mike Helmick <mikehelmick@me.com>'
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 
 import urllib
 import urllib2
@@ -153,7 +153,7 @@ class LinkedinAPI(object):
         return content
 
     def get(self, endpoint, fields='', params={}):
-        return self.api_request(endpoint, fields='', params=params)
+        return self.api_request(endpoint, fields=fields, params=params)
 
     def post(self, endpoint, fields='', params={}):
-        return self.api_request(endpoint, method='POST', fields='', params=params)
+        return self.api_request(endpoint, method='POST', fields=fields, params=params)

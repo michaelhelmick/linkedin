@@ -55,7 +55,7 @@ l = LinkedinAPI(api_key = '*your app key*',
               oauth_token_secret=final_tokens['oauth_token_secret'])
 
 # Get your profile information (first name, last name)
-profile = l.get('people/~', params='first-name,last-name')
+profile = l.get('people/~', fields='first-name,last-name')
 print profile
 
 # Get search results
