@@ -59,7 +59,7 @@ class LinkedinAPI(object):
         # If there's headers, set them. If not, lets 
         self.headers = headers
         if self.headers is None:
-            self.headers = {'User-agent': 'Python-Linkedin %s' % __version__}
+            self.headers = {'User-agent': 'Linkedin %s' % __version__}
         
         # ALL requests will be json. Enforcing it here...
         self.headers.update({'x-li-format': 'json', 'Content-Type':'application/json'})
