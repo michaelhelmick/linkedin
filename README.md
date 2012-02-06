@@ -3,6 +3,11 @@ Here's another library based on the LinkedIn API, OAuth and JSON responses.
 
 Hope this documentation explains everything you need to get started. Any questions feel free to email me or inbox me.
 
+#Install through pip...
+```
+pip install linkedin
+```
+
 #Authorization URL
 *Get an authorization url for your user*
 
