@@ -30,7 +30,7 @@ Once you click "Allow" be sure that there is a URL set up to handle getting fina
 #Handling the callback
 ```python
 # In Django, you'd do something like
-# oauth_token = request.GET.get('oauth_verifier')
+# oauth_token = request.GET.get('oauth_token')
 # oauth_verifier = request.GET.get('oauth_verifier')
 
 oauth_token = *Grab oauth token from URL*
