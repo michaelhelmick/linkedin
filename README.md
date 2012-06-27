@@ -42,7 +42,7 @@ l = LinkedinAPI(api_key='*your app key*',
               oauth_token=oauth_token,
               oauth_token_secret=session['linkedin_session_keys']['oauth_token_secret'])
 
-authorized_tokens = l.get_auth_tokens(oauth_verifier)
+authorized_tokens = l.get_access_token(oauth_verifier)
 
 final_oauth_token = authorized_tokens['oauth_token']
 final_oauth_token_secret = authorized_tokens['oauth_token_secret']
