@@ -9,7 +9,9 @@ pip install linkedin
 ```
 
 #Import LinkedIn library
-```from linkedin import *```
+```
+from linkedin import *
+```
 
 #Authorization URL
 
