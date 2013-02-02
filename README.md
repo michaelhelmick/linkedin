@@ -8,9 +8,10 @@ Hope this documentation explains everything you need to get started. Any questio
 pip install linkedin
 ```
 
-#Authorization URL
-*Import LinkedIn library*
+#Import LinkedIn library
 ```from linkedin import *```
+
+#Authorization URL
 
 *Get an authorization url for your user*
 
