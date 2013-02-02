@@ -9,12 +9,16 @@ pip install linkedin
 ```
 
 #Authorization URL
+*Import LinkedIn library*
+```from linkedin import *```
+
 *Get an authorization url for your user*
 
 ```python
 l = LinkedinAPI(api_key='*your app key*',
               api_secret='*your app secret*',
-              callback_url='http://www.example.com/callback/')
+              callback_url='http://www.example.com/callback/',
+              permissions=["r_network"])
 
 auth_props = l.get_authentication_tokens()
 auth_url = auth_props['auth_url']
@@ -24,6 +28,9 @@ oauth_token_secret = auth_props['oauth_token_secret']
 
 print 'Connect with LinkedIn via: %s' % auth_url
 ```
+If you leave callback_url blank, you can get the oauth_verifier from the web browser. It is a five-digit integer.
+
+The permissions parameter is optional. It can be a list or string. The [list of permissions](https://developer.linkedin.com/documents/authentication) is in the LinkedIn API documentation.
 
 Once you click "Allow" be sure that there is a URL set up to handle getting finalized tokens and possibly adding them to your database to use their information at a later date. \n\n'
 
