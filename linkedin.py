@@ -1,9 +1,9 @@
-#!/usr/bin/evn python
+#!/usr/bin/env python
 
 """ LinkedIn """
 
 __author__ = 'Mike Helmick <mikehelmick@me.com>'
-__version__ = '0.1.2'
+__version__ = '0.1.3'
 
 import urllib
 
@@ -32,12 +32,13 @@ class LinkedinAuthError(LinkedinAPIError): pass
 
 
 class LinkedinAPI(object):
-    def __init__(self, api_key=None, api_secret=None, oauth_token=None, oauth_token_secret=None, headers=None, client_args=None, callback_url=None):
+    def __init__(self, api_key=None, api_secret=None, oauth_token=None, oauth_token_secret=None, headers=None, client_args=None, callback_url=None, permissions=None):
         self.api_key = api_key
         self.api_secret = api_secret
         self.oauth_token = oauth_token
         self.oauth_secret = oauth_token_secret
         self.callback_url = callback_url
+        self.permissions = permissions
 
         # Authentication URLs
         self.request_token_url = 'https://api.linkedin.com/uas/oauth/requestToken'
@@ -46,6 +47,14 @@ class LinkedinAPI(object):
 
         if self.callback_url:
             self.request_token_url = '%s?oauth_callback=%s' % (self.request_token_url, self.callback_url)
+
+        if self.permissions:
+            delimiter = "&" if self.callback_url else "?"
+            if type(self.permissions) is list:
+                permissions = "+".join(self.permissions)
+            else:
+                permissions = self.permissions
+            self.request_token_url = '%s%sscope=%s' % (self.request_token_url, delimiter, permissions)
 
         self.api_base = 'http://api.linkedin.com'
         self.api_version = 'v1'
