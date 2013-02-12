@@ -101,7 +101,7 @@ class LinkedinAPI(object):
             print auth_url
         """
 
-        resp, content = self.client.request(self.request_token_url, 'GET')
+        resp, content = self.client.request(self.request_token_url, 'POST')
 
         status = int(resp['status'])
         if status != 200:
@@ -126,7 +126,7 @@ class LinkedinAPI(object):
             oauth_token_secret = authorized_tokens['oauth_token_secret']
         """
 
-        resp, content = self.client.request('%s?oauth_verifier=%s' % (self.access_token_url, oauth_verifier), 'GET')
+        resp, content = self.client.request('%s?oauth_verifier=%s' % (self.access_token_url, oauth_verifier), 'POST')
         return dict(parse_qsl(content))
 
     def api_request(self, endpoint, method='GET', fields='', params={}):
