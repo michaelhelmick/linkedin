@@ -5,7 +5,12 @@ Hope this documentation explains everything you need to get started. Any questio
 
 #Install through pip...
 ```
-pip install linkedin==0.1.3
+pip install linkedin
+```
+
+If `linkedin` is already installed, pass `-I` to your install:
+```
+pip install -I linkedin
 ```
 
 #Import LinkedIn library
