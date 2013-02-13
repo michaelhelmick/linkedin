@@ -43,7 +43,9 @@ class LinkedinAPI(object):
         # Authentication URLs
         self.request_token_url = 'https://api.linkedin.com/uas/oauth/requestToken'
         self.access_token_url = 'https://api.linkedin.com/uas/oauth/accessToken'
-        self.authorize_url = 'https://api.linkedin.com/uas/oauth/authorize'
+		# Authentication page in http://developer.linkedin.com/documents/authentication states that 
+		# endpoint is the following not the previous url used.
+        self.authorize_url = 'https://api.linkedin.com/uas/oauth/authenticate'
 
         if self.callback_url:
             self.request_token_url = '%s?oauth_callback=%s' % (self.request_token_url, self.callback_url)
