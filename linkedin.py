@@ -43,7 +43,9 @@ class LinkedinAPI(object):
         # Authentication URLs
         self.request_token_url = 'https://api.linkedin.com/uas/oauth/requestToken'
         self.access_token_url = 'https://api.linkedin.com/uas/oauth/accessToken'
-        self.authorize_url = 'https://api.linkedin.com/uas/oauth/authorize'
+		# Authentication page in http://developer.linkedin.com/documents/authentication states that 
+		# endpoint is the following not the previous url used.
+        self.authorize_url = 'https://api.linkedin.com/uas/oauth/authenticate'
 
         if self.callback_url:
             self.request_token_url = '%s?oauth_callback=%s' % (self.request_token_url, self.callback_url)
@@ -101,7 +103,7 @@ class LinkedinAPI(object):
             print auth_url
         """
 
-        resp, content = self.client.request(self.request_token_url, 'GET')
+        resp, content = self.client.request(self.request_token_url, 'POST')
 
         status = int(resp['status'])
         if status != 200:
@@ -126,7 +128,7 @@ class LinkedinAPI(object):
             oauth_token_secret = authorized_tokens['oauth_token_secret']
         """
 
-        resp, content = self.client.request('%s?oauth_verifier=%s' % (self.access_token_url, oauth_verifier), 'GET')
+        resp, content = self.client.request('%s?oauth_verifier=%s' % (self.access_token_url, oauth_verifier), 'POST')
         return dict(parse_qsl(content))
 
     def api_request(self, endpoint, method='GET', fields='', params={}):
