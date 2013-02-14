@@ -157,7 +157,7 @@ class LinkedinAPI(object):
 
         status = int(resp['status'])
         if status < 200 or status >= 300:
-            raise LinkedinAPIError('Error Code: %d, Message: %s' % (status, content['message']))
+            raise LinkedinAPIError('Error Code: %d, Message: %s' % (status, content['message']), status)
 
         return content
 
