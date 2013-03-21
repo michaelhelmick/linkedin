@@ -27,7 +27,15 @@ except ImportError:
             raise ImportError('A json library is required to use this python library. Lol, yay for being verbose. ;)')
 
 
-class LinkedinAPIError(Exception): pass
+class LinkedinAPIError(Exception):
+    def __init__(self, message, code=None):
+        self.message = message
+        self.code = code
+
+    def __str__(self):
+        return repr(self.message)
+
+        
 class LinkedinAuthError(LinkedinAPIError): pass
 
 
