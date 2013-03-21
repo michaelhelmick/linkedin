@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
     name='linkedin',
-    version='0.1.4',
+    version='0.1.5',
     install_requires=['httplib2', 'oauth2', 'simplejson'],
     author='Mike Helmick',
     author_email='mikehelmick@me.com',

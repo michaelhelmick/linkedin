@@ -3,7 +3,7 @@
 """ LinkedIn """
 
 __author__ = 'Mike Helmick <mikehelmick@me.com>'
-__version__ = '0.1.3'
+__version__ = '0.1.5'
 
 import urllib
 
