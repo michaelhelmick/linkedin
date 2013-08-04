@@ -7,7 +7,7 @@ setup(
     version='0.1.5',
     install_requires=['httplib2', 'oauth2', 'simplejson'],
     author='Mike Helmick',
-    author_email='mikehelmick@me.com',
+    author_email='me@michaelhelmick.com',
     license='MIT License',
     url='https://github.com/michaelhelmick/linkedin/',
     keywords='python linkedin json oauth api',
